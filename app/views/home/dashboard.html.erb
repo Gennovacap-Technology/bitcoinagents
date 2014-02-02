@@ -1,70 +1,647 @@
 <!-- start: Content -->
-<style type="text/css">
-	.dashboard-well {
-		min-height: 400px;
-	}
-
-	.button-align-bottom {
-		position:absolute; bottom:40px;
-	}
-
-</style>
-
-<div id="content" class="col-lg-10 col-sm-11">
+<div id="content" class="col-lg-12">
 	<div class="row">
-		<div class="col-lg-4">
-			<div class="well dashboard-well">
-				<h1>Market Data:</h1>
-					<h2><label>Last Price: </label> $812.88</h2>
-					<h2><label>Daily Change: </label> $9.88</h2>
-					<h2><label>Day's Range: </label> $802.59 - $827.38</h2>
-					<h2><label>Today's Open: </label> $803.00</h2>
-					<h2><label>24hr Volume: </label> 8300 BTC</h2>
-					<h2><label>Market Cap: </label> $10,032,077,232.00</h2>
-					<h2><label>Total BTC: </label> 12,341,400 BTC</h2>		
-				
-			</div>
-		</div>
-		<div class="col-lg-4">
-			<div class="well dashboard-well">
-				<h1>Holdings:</h1>
-				<h2><label>User ID: </label> </h2>
-				<h2><label>BTC balance: </label> </h2>
-				<h2><label>Cash balance: </label> </h2>
-				<h2><label>Available for Trading: </label> </h2>
-				<h2><label>Fees and rates table: </label> </h2>
-				<div class="button-align-bottom">
-					<button class="btn btn-sm btn-success"><i class="fa fa-money"></i> Deposit Cash</button>
-					<button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i> Withdraw Cash</button>
-				</div>		
-			</div>	
-		</div>
-		<div class="col-lg-4">	
-			<div class="well dashboard-well">
-				<h1>Trading:</h1>
-				<h2><label>USD waiting withdrawal: </label> </h2>
-				<h2><label>USD in open orders: </label> </h2>
-				<h2><label>Total USD Amount: </label> </h2>
-				<h2><label>BTC waiting withdrawal: </label> </h2>
-				<h2><label>BTC in open orders: </label> </h2>
-				<h2><label>Total BTC Amount: </label> </h2>
-				<div class="button-align-bottom">
-					<button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Buy BTC</button>
-					<button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i> Sell BTC</button>
-					<button class="btn btn-sm btn-info"><i class="fa fa-bullhorn"></i> Quotes and Charts</button>
-				</div>	
-			</div>	
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-12">
-			<h1>Intraday candlestick or lazy loading Highstock Chart Here</h1>	
+		<div class="col-sm-12">
+			<ol class="breadcrumb">
+				<li><a href="">Bitcoin Agents</a></li>
+				<li class="active">Dashboard</li>
+				<div class="form-group choose-date hidden-xs">
+					<div class="controls">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+							<input type="text" class="form-control" id="daterange" value="09/09/2013 - 09/28/2013">
+							<span class="input-group-addon"><i class="fa fa-chevron-down"></i></span>
+						</div>
+					</div>
+				</div>
+			</ol>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box">
+								<div class="box-header">
+									<h2><i class="fa fa-check"></i>Account Data</h2>
+								</div>
+								<div class="box-content no-padding">
+									<table class="table bootstrap-datatable datatable small-font">
+										<thead>
+											<tr>
+												<th>User ID:</th>
+												<th>Cash balance:</th>
+												<th>BTC balance:</th>
+												<th>Portfolio Value (BTC+$):</th>
+												<th>Lifetime Earnings</th>
+											</tr>
+										</thead>   
+										<tbody>
+											<tr>
+												<td>Johnnny Apple Seed</td>
+												<td>$35,000</td>
+												<td>2450 BTC</td>
+												<td>$2,117,500</td>
+												<td class="darkGreen">+ $1,769,980</td>
+																			
+											</tr>								
+										</tbody>
+									</table>	
+										
+								</div>
+								<button class="btn btn-sm btn-success"><i class="fa fa-money"></i> Deposit Cash</button>
+								<button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i> Withdraw Cash</button> 
+								<button class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Buy BTC</button>
+								<button class="btn btn-sm btn-danger pull-right"><i class="fa fa-minus"></i> Sell BTC</button>
+								<button class="btn btn-sm btn-info pull-right"><i class="fa fa-bullhorn"></i> Quotes and Charts</button>
+							</div>
+						</div><!--/col-->
+					</div><!--/row-->	
+				</div><!--/col-->
+			</div><!--/row-->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box">
+								<div class="box-header">
+									<h2><i class="fa fa-check"></i>Current Market Data</h2>
+								</div>
+								<div class="box-content no-padding">
+									<table class="table bootstrap-datatable datatable small-font">
+										<thead>
+											<tr>
+												<th>Last Price: </th>
+												<th>Daily Change:</th>
+												<th>Day's Range: </th>
+												<th>Today's Open: </th>
+												<th>24hr Volume: </th>
+												<th>Market Cap: </th>
+												<th>Total BTC: </th>
+											</tr>
+										</thead>   
+										<tbody>
+											<tr>
+												<td>$820</td>
+												<td class="darkGreen"> +/- $25.88</td>
+												<td>$802.59 - $827.38</td>
+												<td>$803.00</td>
+												<td>8300 BTC</td>
+												<td>$10,032,077,232</td>
+												<td>12,341,400 BTC</td>										
+											</tr>				
+										</tbody>
+									</table>	 	
+								</div>
+							</div>
+						</div><!--/col-->
+					</div><!--/row-->	
+				</div><!--/col-->
+			</div><!--/row-->
 
-		</div>
-		
-	</div>
+			<div class="row">
+				<div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="box info-box">
+						<div class="backgroundColor darkGreen">
+							<div class="clearfix">
+								<span class="title">Cash On Deposit</span>
+								<span class="value">$35,000</span>
+							</div>
+							<div class="clearfix">
+								<span class="date">Today 6:43 AM</span>
+								<span class="change">+$432,50 (15,78%)</span>
+							</div>	
+							<div class="chart-info-box" style="height:50px;margin-top: 20px;"></div>
+						</div>
+						<div class="quarters">
+							<div class="quarter q1">
+								<div>+$780,98 <span>Weekly Change</span></div>
+							</div>
+							<div class="quarter q2">
+								<div class="verticalChart">
+
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>37%</span>
+											</div>
+										</div>
+										<div class="title">M</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>16%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>12%</span>
+											</div>
+										</div>
+										<div class="title">W</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>9%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>7%</span>
+											</div>
+										</div>
+										<div class="title">F</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>6%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>5%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="quarter q3">
+								2
+								<span>Deposits</span>
+							</div>
+							<div class="quarter q4">
+								$35,000
+								<span>Total Cash</span>
+							</div>
+						</div>	
+					</div>
+				</div><!--/col-->
+				<div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="box info-box">
+						<div class="backgroundColor red">
+							<div class="clearfix">
+								<span class="title">Cash Withdrawals</span>
+								<span class="value">$10,000</span>
+							</div>
+							<div class="clearfix">
+								<span class="date">Today 6:43 AM</span>
+								<span class="change">+$432,50 (15,78%)</span>
+							</div>	
+							<div class="chart-info-box2" style="height:50px;margin-top: 20px;"></div>
+						</div>
+
+						<div class="quarters">
+
+							<div class="quarter q1">
+								<div>-$780,98 <span>Weekly Change</span></div>
+							</div>
+							<div class="quarter q2">
+								<div class="verticalChart">
+
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>37%</span>
+											</div>
+										</div>
+										<div class="title">M</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>16%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>12%</span>
+											</div>
+										</div>
+										<div class="title">W</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>9%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>7%</span>
+											</div>
+										</div>
+										<div class="title">F</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>6%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>5%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="quarter q3">
+								2
+								<span>Withdrawals</span>
+							</div>
+							<div class="quarter q4">
+								$10,000
+								<span>Total Withdrawals</span>
+							</div>
+						</div>	
+					</div>
+				</div><!--/col-->
+				<div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="box info-box">
+						<div class="backgroundColor darkGreen">
+							<div class="clearfix">
+								<span class="title">BTC on Deposit</span>
+								<span class="value">2450 BTC</span>
+							</div>
+							<div class="clearfix">
+								<span class="date">Today 6:43 AM</span>
+								<span class="change">+432 (15,78%)</span>
+							</div>	
+							<div class="chart-info-box2" style="height:50px;margin-top: 20px;"></div>
+						</div>
+						<div class="quarters">
+							<div class="quarter q1">
+								<div>+640 BTC <span>Weekly Change</span></div>
+							</div>
+							<div class="quarter q2">
+								<div class="verticalChart">
+
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>37%</span>
+											</div>
+										</div>
+										<div class="title">M</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>16%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>12%</span>
+											</div>
+										</div>
+										<div class="title">W</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>9%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>7%</span>
+											</div>
+										</div>
+										<div class="title">F</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>6%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>5%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="quarter q3">
+									432 BTC
+								<span>BTC Bought</span>
+							</div>
+							<div class="quarter q4">
+								2450
+								<span>Total BTC </span>
+							</div>
+						</div>	
+					</div>
+				</div><!--/col-->
+				<div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="box info-box">
+						<div class="backgroundColor red">
+							<div class="clearfix">
+								<span class="title">BTC Sold</span>
+								<span class="value">1000 BTC</span>
+							</div>
+							<div class="clearfix">
+								<span class="date">Today 6:43 AM</span>
+								<span class="change">-205 BTC (15,78%)</span>
+							</div>	
+							<div class="chart-info-box" style="height:50px;margin-top: 20px;"></div>
+						</div>
+						<div class="quarters">
+							<div class="quarter q1">
+								<div>-800 BTC <span>Weekly Change</span></div>
+							</div>
+							<div class="quarter q2">
+								<div class="verticalChart">
+
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>37%</span>
+											</div>
+										</div>
+										<div class="title">M</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>16%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>12%</span>
+											</div>
+										</div>
+										<div class="title">W</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>9%</span>
+											</div>
+										</div>
+										<div class="title">T</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>7%</span>
+											</div>
+										</div>
+										<div class="title">F</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>6%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+									<div class="singleBar">
+										<div class="bar">
+											<div class="value">
+												<span>5%</span>
+											</div>
+										</div>
+										<div class="title">S</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="quarter q3">
+								205 BTC
+								<span>BTC Sold</span>
+							</div>
+							<div class="quarter q4">
+								1000 BTC
+								<span>Total BTC Sold</span>
+							</div>
+
+						</div>	
+
+					</div>
+				</div><!--/col-->
+
+			</div><!--/row-->
+
+			
+			<!-- <div class="row">
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box">
+								<div class="box-header">
+									<h2><i class="fa fa-check"></i>Executed Trading Data</h2>
+								</div>
+								<div class="box-content no-padding">
+									<table class="table bootstrap-datatable datatable small-font">
+										<thead>
+											<tr>
+												<th>USD waiting withdrawal:</th>
+												<th>USD in open orders:</th>
+												<th>Total USD Amount:</th>
+												<th>BTC waiting withdrawal:</th>
+												<th>BTC in open orders:</th>
+												<th>Total BTC Amount:</th>
+											</tr>
+										</thead>   
+										<tbody>
+											<tr>
+												<td>$10,000</td>
+												<td>2450 BTC</td>
+												<td>$45,000</td>
+												<td>$803.00</td>								
+											</tr>								
+										</tbody>
+									</table>										
+								</div>
+								<button class="btn btn-sm btn-success"><i class="fa fa-money"></i> Deposit Cash</button>
+								<button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i> Withdraw Cash</button> 
+								<button class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Buy BTC</button>
+								<button class="btn btn-sm btn-danger pull-right"><i class="fa fa-minus"></i> Sell BTC</button>
+								<button class="btn btn-sm btn-info pull-right"><i class="fa fa-bullhorn"></i> Quotes and Charts</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+	</div><!--/row-->		
+</div><!--/col-->
+
+		<!-- 
+
+		####   FEED TO BE IMPLEMENTED AFTER IN VERSION 1.1  #####
+
+		<div class="col-md-3 visible-md visible-lg" id="feed">
+
+			<h2>Bitcoin Trades <a class="fa fa-repeat"></a></h2>
+
+			<ul id="filter">
+				<li><a class="darkGreen" href="" data-option-value="task">Buy BTC</a></li>
+				<li><a class="red" href="" data-option-value="comment">Sell BTC</a></li>
+				<li><a class="blue" href="" data-option-value="message">Messages</a></li>
+				<li><a href="" data-option-value="all">All</a></li>
+			</ul>
+
+			<ul id="timeline">
+
+				<li class="task">
+					<i class="fa fa-check-square darkGreen"></i>
+					<div class="title">New website - A/B Tests</div>
+					<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<span class="date">3 seconds ago</span>
+					<span class="separator">•</span>
+					<span class="name">Megan Abbott</span>
+				</li>
+
+				<li class="comment">
+					<i class="fa fa-comments red"></i>
+					<div class="title">Sales increase</div>
+					<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+					<span class="date">15 minutes ago</span>
+					<span class="separator">•</span>
+					<span class="name">Ashley Tan</span>
+				</li>
+
+				<li class="comment">
+					<i class="fa fa-comments red"></i>
+					<div class="title">New Bootstrap Theme</div>
+					<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+					<span class="date">Today</span>
+					<span class="separator">•</span>
+					<span class="name">Ashley Tan</span>
+				</li>
+
+				<li class="message">
+					<i class="fa fa-pencil-square blue"></i>
+					<div class="title">Job offer</div>
+					<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+					<span class="date">Yesterday</span>
+					<span class="separator">•</span>
+					<span class="name">James Doe</span>
+				</li>
+
+				<li class="task">
+					<i class="fa fa-check-square green"></i>
+					<div class="title">Custom Design</div>
+					<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<span class="date">5 days ago</span>
+					<span class="separator">•</span>
+					<span class="name">Megan Abbott</span>
+				</li>		
+
+			</ul>
+			<a href="" id="load-more">•••</a>		 -->
+
+
+		</div><!--/col-->	
+
+	</div><!--/row-->				
 </div>
 <!-- end: Content -->
-</div><!--/row-->		
-</div><!--/container-->
 
+</div><!--/row-->		
+
+</div><!--/container-->
+<!-- start: JavaScript-->
+<!--[if !IE]>-->
+
+
+
+<!--<![endif]-->
+
+	<!--[if IE]>
+	
+		<script src="assets/js/jquery-1.10.2.min.js"></script>
+	
+		<![endif]-->
+
+		<!--[if !IE]>-->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!--<![endif]-->
+
+	<!--[if IE]>
+	
+		<script type="text/javascript">
+	 	window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		
+		<![endif]-->
+		<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		
+
+
+	<!-- page scripts -->
+	<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="assets/js/jquery.sparkline.min.js"></script>
+	<script src="assets/js/fullcalendar.min.js"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="assets/js/excanvas.min.js"></script><![endif]-->
+	<script src="assets/js/jquery.flot.min.js"></script>
+	<script src="assets/js/jquery.flot.pie.min.js"></script>
+	<script src="assets/js/jquery.flot.stack.min.js"></script>
+	<script src="assets/js/jquery.flot.resize.min.js"></script>
+	<script src="assets/js/jquery.flot.time.min.js"></script>
+	<script src="assets/js/jquery.autosize.min.js"></script>
+	<script src="assets/js/jquery.placeholder.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/daterangepicker.min.js"></script>
+	<script src="assets/js/jquery.easy-pie-chart.min.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+	<script src="assets/js/dataTables.bootstrap.min.js"></script>
+	
+	<!-- theme scripts -->
+	<script src="assets/js/custom.min.js"></script>
+	<script src="assets/js/core.min.js"></script>
+	
+	<!-- inline scripts related to this page -->
+	<script src="assets/js/pages/index.js"></script>
+	
+	<!-- end: JavaScript-->
