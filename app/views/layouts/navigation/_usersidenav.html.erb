@@ -1,59 +1,84 @@
 <div class="container">
 	<div class="row">
-
 		<!-- start: Main Menu -->
 		<div id="sidebar-left" class="col-lg-2 col-sm-1 ">
-
 			<div class="sidebar-nav nav-collapse collapse navbar-collapse">
 				<ul class="nav main-menu">
-						<li>
-
-							<a class="dropmenu" href="">
-								<i class="fa fa-dashboard"></i>
-								<span class="hidden-sm text">Dashboard</span>
-							</a>
+				
+					<li>
+						<%= link_to "dashboard", :class => "" do %>
+							<i class="fa fa-dashboard"> </i>
+							<span class="hidden-sm text">Dashboard</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "buybitcoin", :class => "" do %>
+						<i class="fa fa-plus"></i>
+						<span class="hidden-sm text"> Buy BTC</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "sellbitcoin", :class => "" do %>
+						<i class="fa fa-minus"></i>
+						<span class="hidden-sm text"> Sell BTC</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "orderbook", :class => "" do %>
+						<i class="fa fa-briefcase"></i>
+						<span class="hidden-sm text"> Order Book</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "bitcoincharts", :class => "" do %>
+						<i class="fa fa-bullhorn"></i>
+						<span class="hidden-sm text"> Quotes / Charts</span>
+						<% end %>
 						</li>
-						<li>
-							<a class="dropmenu" href=""><i class="fa fa-exchange"></i><span class="hidden-sm text"> Buy / Sell Markets</span> <span class="chevron closed"></span></a>
-							<ul>
-								<li><a class="submenu" href=""><i class="fa fa-plus"></i><span class="hidden-sm text"> Buy</span></a></li>
-								<li><a class="submenu" href=""><i class="fa fa-minus"></i><span class="hidden-sm text"> Sell</span></a></li>
-								<li><a class="submenu" href=""><i class="fa fa-briefcase"></i><span class="hidden-sm text"> Order Book</span></a></li>
-								<li><a class="submenu" href=""><i class="fa fa-bullhorn"></i><span class="hidden-sm text"> Quotes / Charts</span></a></li>
-							</ul>
+					<li>
+						<%= link_to "open_orders", :class => "" do %>
+						<i class="fa fa-ticket"></i>
+						<span class="hidden-sm text"> Open Orders</span>
+						<% end %>
 						</li>
-						<li>
-						
-						<li>
-							<a class="dropmenu" href=""><i class="fa fa-ticket"></i><span class="hidden-sm text"> Open Orders</span> <span class="chevron closed"></span></a>
-						<!-- 	<ul>
-								<li><a class="submenu" href="form-elements.html"><i class="fa fa-edit"></i><span class="hidden-sm text"> Form elements</span></a></li>
-
-							</ul> -->
-						</li>
-						<li>
-							<a class="dropmenu" href=""><i class="fa fa-edit"></i><span class="hidden-sm text">  Transactions </span> <span class="chevron closed"></span></a>
-						<!-- 	<ul>
-								<li><a class="submenu" href="page-inbox.html"><i class="fa fa-envelope-o"></i><span class="hidden-sm text"> Inbox</span></a></li>
-							</ul>	 -->
-						</li>
-						<li>
-							<a class="dropmenu" href=""><i class="fa fa-lock"></i><span class="hidden-sm text"> Security</span> <span class="chevron closed"></span></a>
-							<ul>
-								<li><a class="submenu" href=""><i class="fa fa-key"></i><span class="hidden-sm text">Two Factor Auth</span></a></li>
-								<!-- <li><a class="submenu" href=""><i class="fa fa-rocket"></i><span class="hidden-sm text">API Access</span></a></li> -->
-								<li><a class="submenu" href=""><i class="fa fa-envelope"></i><span class="hidden-sm text">Withdrawal Emails</span></a></li>
-								
-							</ul>
-
-						</li>
-						<li><a href=""><i class="fa  fa-credit-card"></i><span class="hidden-sm text"> Verify Account</span></a></li>
-						<li><a href=""><i class="fa fa-money"></i><span class="hidden-sm text"> Deposit</span></a></li>
-						<li><a href=""><i class="fa fa-download"></i><span class="hidden-sm text"> Withdrawal</span></a></li>
-						
-						
-					</ul>
-				</div>
-				<a href="" id="main-menu-min" class="full visible-md visible-lg"><i class="fa fa-angle-double-left"></i></a>
+					<li>
+						<%= link_to "transaction_login_history", :class => "" do %>
+						<i class="fa fa-edit"></i>
+						<span class="hidden-sm text">  Transactions </span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "", :class => "" do %>
+						<i class="fa fa-lock"></i>
+						<span class="hidden-sm text"> Security</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "two_factor_authentication", :class => "" do %>
+						<i class="fa fa-key"></i>
+						<span class="hidden-sm text">Two Factor Auth</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "payment_methods", :class => "" do %>
+						<i class="fa  fa-credit-card"></i
+						><span class="hidden-sm text"> Verify Account</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "deposit_money", :class => "" do %>
+						<i class="fa fa-money"></i>
+						<span class="hidden-sm text"> Deposit</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to "withdrawal_money", :class => "" do %>
+						<i class="fa fa-download"></i>
+						<span class="hidden-sm text"> Withdrawal</span>
+						<% end %>
+					</li>
+				</ul>
 			</div>
+			<a href="" id="main-menu-min" class="full visible-md visible-lg"><i class="fa fa-angle-double-left"></i></a>
+		</div>
 			<!-- end: Main Menu -->

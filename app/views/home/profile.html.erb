@@ -11,44 +11,23 @@
  					<img class="profile-image" src="assets/img/gallery/photo9.jpg">
  				</div>
  				<div class="col-xs-5 col-sm-12">
- 					<h3>Contact Information</h3>
+ 					<h3>Verify Your Account</h3>
  					<ul class="profile-details">
- 						<li>
- 							<div><i class="fa fa-phone"></i> Phone Numbers</div>
- 							<div class="well"> Adding a phone enables two-factor authentication on your account<br /><br /><button class="btn btn-sm btn-primary myModal"><i class="fa fa-plus"></i> Verify a phone</button></div>
-
- 						</li>
- 						<li>
- 							<div><i class="fa fa-tablet"></i> mobile phone</div>
- 							+48 123 456 789
- 							<br />
- 							<button class="btn btn-xs btn-success">Verified </button>
- 							<button class="btn btn-xs btn-info">Primary Phone</button>
- 						</li>
- 						<li>
- 							<div><i class="fa fa-envelope"></i> e-mail</div>
- 							lukasz@bootstrapmaster.com
- 						</li>
- 						<li>
- 							<div><i class="fa fa-map-marker"></i> address</div>
- 							Konopnickiej 42<br/>
- 							43-190 Mikolow<br/>
- 							Slask, Poland
- 						</li>
+ 							<div class="well"> Adding a phone enables two-factor authentication on your account.<br /><br /><button class="btn btn-sm btn-primary myModal"> Verify a phone</button></div>
  					</ul>
  				</div>	
  			</div><!--/row-->	
  		</div><!--/col-->
  		<div class="col-sm-9">
  			<ul class="nav nav-tabs" id="myTab">
- 				<li class="active"><a href="profile#skills">Account Information</a></li>
+ 				<li class="active"><a href="profile#account">Account Information</a></li>
  				<li><a href="profile#addresses">Addresses</a></li>
  				<li><a href="profile#notifications">Notifications</a></li>
  			</ul>
  			<div class="tab-content">
- 				<div class="tab-pane active" id="skills">
+ 				<div class="tab-pane active" id="account">
  					<div class="row">	
- 						<div class="col-lg-5">
+ 						<div class="col-lg-6">
  							<div class="box">
  								<div class="box-header">
  									<h2><i class="fa fa-user"></i>Account Settings</h2>
@@ -68,6 +47,8 @@
  												<input class="form-control focused" id="focusedInput" type="text" placeholder="rezapiri@gmail.com">
  											</div>
  										</div>
+ 										<!-- <a href="">Change Password</a><br />
+		 								<a href="">Forgot Password</a><br /> -->
  										<div class="form-group">
  											<label class="control-label" for="selectError3">Select Your Currency</label>
  											<div class="controls">
@@ -95,38 +76,103 @@
  								</div>
  							</div>
  						</div><!--/col-->
- 						<div class="col-lg-5 pull-right">
- 							<a href="">Change Password</a><br />
- 							<a href="">Forgot Password</a><br />
- 							<a href="">Change Picture</a><br />
- 						</div>
+ 						<div class="col-lg-6">
+ 							<div class="box">
+ 								<div class="box-header">
+ 									<h2><i class="fa fa-lock"></i>Verified Settings</h2>
+ 								</div>
+ 								<div class="box-content">
+
+		 							
+		 							<ul class="profile-details">
+				 						<!-- <li>
+				 							<div><i class="fa fa-phone"></i> Phone Numbers</div>
+				 							<div class="well"> Adding a phone enables two-factor authentication on your account<br /><br /><button class="btn btn-sm btn-primary myModal"><i class="fa fa-plus"></i> Verify a phone</button></div>
+
+				 						</li> -->
+				 						<li>
+				 							<div><i class="fa fa-tablet"></i> mobile phone</div>
+				 							+48 123 456 789
+				 							<br />
+				 							<button class="btn btn-xs btn-success">Verified </button>
+				 							<button class="btn btn-xs btn-info">Primary Phone</button>
+				 						</li>
+				 						<li>
+				 							<div><i class="fa fa-envelope"></i> e-mail</div>
+				 							reznutz@gmail.com
+				 						</li>
+				 						<li>
+				 							<div><i class="fa fa-map-marker"></i> address</div>
+				 							1620 E. Riverside #1081<br/>
+				 							Austin, TX 78741<br/>
+				 							USA
+				 						</li>
+				 					</ul>
+		 							
+ 								</div>
+ 							</div>
+ 						</div><!--/col-->
  					</div><!--/row -->	
  				</div>
  				<div class="tab-pane" id="addresses">
  					<div class="row">	
- 						<div class="col-lg-12">
+ 						<div class="col-lg-6">
  							<div class="box">
  								<div class="box-header">
- 									<h2><i class="fa fa-qrcode"></i>Bitcoin Addresses</h2>
+ 									<h2><i class="fa fa-qrcode"></i>Search for Bitcoin Addresses</h2>
  								</div>
  								<div class="box-content">
- 									<p>Your wallet on Bitcoin Agents is a collection of bitcoin addresses. New bitcoin addresses are automatically generated for each payment on Bitcoin Agents and stay associated with your account forever (so it is safe to reuse them).You can add a label or callback URL to an individual address by clicking 'Edit'. Callback urls can be used to receive automated notifications when a payment arrives.</p>
+ 									<p>Your wallet on Bitcoin Agents is a collection of bitcoin addresses. New bitcoin addresses are automatically generated for each payment on Bitcoin Agents and stay associated with your account forever (so it is safe to reuse them).</p>
  									<form class="form-horizontal">
- 										<div class="col-lg-4">
-						 					 <div class="form-group">
-												<label class="control-label" for="appendedInputButton">Search For Bitcoin Address</label>
-													<div class="controls">
-													  <div class="input-group">
-														<input id="appendedInputButton" class="form-control" size="16" type="text">
-														<span class="input-group-btn"><button class="btn" type="button">Go!</button></span>
-													  </div>
-													</div>
-											  </div>
-										</div>	  
+					 					 <div class="form-group">
+											<label class="control-label" for="appendedInputButton">Search For Bitcoin Address</label>
+												<div class="controls">
+												  <div class="input-group">
+													<input id="appendedInputButton" class="form-control" size="16" type="text">
+													<span class="input-group-btn"><button class="btn" type="button">Go!</button></span>
+												  </div>
+												</div>
+										  </div>
 									</form>	
 								</div>
  							</div>
  						</div><!--/col-->
+ 					</div>
+ 					<div class="row">
+ 						<div class="col-md-12">
+							<div class="box">
+								<div class="box-header">
+									<h2><i class="fa fa-qrcode"></i>All Available Addresses </h2>
+									<button type="submit" class="btn btn-info pull-right "><i class="fa fa-qrcode" style="bottom:0px;"> </i> Create New Address</button>
+								</div>
+								<div class="box-content no-padding">
+										
+									<table class="table bootstrap-datatable datatable small-font">
+										<thead>
+											<tr>
+												<th>Address</th>
+												<th>Label</th>
+												<th>Callback URL</th>
+												<th>Created</th>
+												<th>Details</th>
+											</tr>
+										</thead>   
+										<tbody>
+											<tr>
+												<td>19GjFwhMwtdrcppLbGcLsJFr2AqY2rQ7t</td>
+												<td>Desktop</td>
+												<td>http://www.bitcoin-agents.com</td>
+												<td>1/30/2014</td>	
+												<td><button href="profile#qrcode" class="btn btn-xs btn-success btn-setting"><i class="fa fa-search"></i> See Details</button></td>			
+											</tr>							
+										</tbody>
+									</table>	
+										
+								</div>
+								
+							</div>
+						</div><!--/col-->
+
  					</div>
  				</div>
  				<div class="tab-pane" id="notifications">
