@@ -1,4 +1,2 @@
-require 'authy'
-
-Authy.api_key = ENV['AUTHY_API_KEY'] || 'bf12974d70818a08199d17d5e2bae630'
-Authy.api_uri = 'http://sandbox-api.authy.com/'
+Authy.api_key = ENV['AUTHY_API_KEY'] || 'de47ef4a03daf19b0c812982d392f172'
+Authy.api_uri = 'https://api.authy.com/'
