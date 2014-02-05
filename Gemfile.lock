@@ -59,9 +59,6 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise-authy (1.5.0)
-      authy
-      devise
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -137,13 +134,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authy
   better_errors
   binding_of_caller
   cancan
   coffee-rails (~> 4.0.0)
   debugger
   devise
-  devise-authy
   jbuilder (~> 1.2)
   jquery-rails
   pg
