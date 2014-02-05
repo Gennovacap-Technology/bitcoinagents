@@ -1,38 +1,30 @@
 Bitcoinagents::Application.routes.draw do
 
+  devise_for :users, :controllers => { :sessions => "users/sessions" }, :path => '/', :path_names => { 
+    :sign_in => 'login', 
+    :sign_out => 'logout', 
+    :password => 'secret', 
+    :confirmation => 'verification', 
+    :unlock => 'unlock', 
+    :registration => 'register', 
+    :sign_up => ''
+  }
+
+  #devise_scope :user do
+    # get "/dashboard/user/verify-token", :to => "devise/devise_authy#GET_verify_authy"
+    # get "/dashboard/user/enable-two-factor", :to => "devise/devise_authy#GET_enable_authy"
+    # get "/dashboard/user/verify-installation", :to => "devise/devise_authy#GET_verify_authy_installation"
+    # post "/dashboard/user/verify-token", :to => "devise/devise_authy#POST_verify_authy"
+    # post "/dashboard/user/enable-two-factor", :to => "devise/devise_authy#POST_enable_authy"
+    # post "/dashboard/user/verify-installation", :to => "devise/devise_authy#POST_verify_authy_installation"
+    # post "/dashboard/user/send-sms", :to => "devise/devise_authy#request_sms"
+  #end
+
   root to: "home#index"
 
-  # Home Public Area
-  get "login"   =>    'home#login',  :as => :login
-  get "about"   =>    'home#about',  :as => :about
-  get "signup"   =>    'home#signup',  :as => :signup
-  get "contact"   =>    'home#contact',  :as => :contact
-  get "security"   =>    'home#security',  :as => :security
-  
-  # User Account Setup and Verification
-  get "dashboard"   =>    'home#dashboard',   :as =>  :dashboard
-  get "profile"   =>    'home#profile',   :as =>  :profile
-  get "two_factor_authentication"   =>    'home#two_factor_authentication',   :as =>  :two_factor_authentication
-  get "payment_methods"   =>    'home#payment_methods',   :as =>  :payment_methods
-  get "deposit_money"   =>    'home#deposit_money',   :as =>  :deposit_money
-  get "withdrawal_money"   =>    'home#withdrawal_money',   :as =>  :withdrawal_money
-  get "bitcoin_addresses"   =>    'home#bitcoin_addresses',   :as =>  :bitcoin_addresses
-  
-  # Analysis and Charts: Pre-Purchase
-  get "orderbook"   =>    'home#orderbook',  :as => :orderbook
-  get "bitcoincharts"   =>    'home#bitcoincharts',  :as => :bitcoincharts
-  
-  # Buying, Selling, Trading
-  get "buybitcoin"   =>    'home#buybitcoin',  :as => :buybitcoin
-  get "buyorder_bitcoin_invoice"   =>    'home#buyorder_bitcoin_invoice',   :as =>  :buyorder_bitcoin_invoice
-  get "sellbitcoin"   =>    'home#sellbitcoin',  :as => :sellbitcoin
-  get "sellorder_bitcoin_invoice"   =>    'home#sellorder_bitcoin_invoice',   :as =>  :sellorder_bitcoin_invoice
- 
-  # Accounting and transaction history
-  get "open_orders"   =>    'home#open_orders',   :as =>  :open_orders
-  get "transaction_login_history"   =>    'home#transaction_login_history',   :as =>  :transaction_login_history
- 
-
-
+  namespace :dashboard do
+    get '/', to: 'dashboard#index', as: ''
+    resource :user, only: [:show, :edit, :update]
+  end
 
 end

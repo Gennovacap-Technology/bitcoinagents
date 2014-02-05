@@ -264,12 +264,16 @@
 							<div class="avatar"><span class="avatar"></span></div>
 							<div class="user">
 								<span class="hello">Welcome!</span>
-								<span class="name">Reza Piri</span>
+								<span class="name"><%= current_user.email %></span>
 							</div>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="charts-flot.html#"><i class="fa fa-cog"></i> Settings</a></li>
-							<li><a href="page-login.html"><i class="fa fa-off"></i> Logout</a></li>
+							<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+							<li>
+								<%= link_to(destroy_user_session_path, :method => "delete") do %>
+									<i class="fa fa-off"></i> Logout
+								<% end %>
+							</li>
 						</ul>
 					</li>
 					<!-- end: User Dropdown -->
