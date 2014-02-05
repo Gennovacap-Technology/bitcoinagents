@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   # Change the app layout based on the user session
   def users_layout
     puts params[:controller]
-  	if params[:controller] == 'home' || params[:controller] == 'users/sessions'
+  	if params[:controller] == 'home' || params[:controller] == 'users/sessions' || params[:controller] == 'devise/registrations' || params[:controller] == 'devise/confirmations' || params[:controller] == 'devise/passwords'
       "application"
     else
       "dashboard"
