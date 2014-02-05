@@ -23,7 +23,11 @@ class ApplicationController < ActionController::Base
 
   # Change the app layout based on the user session
   def users_layout
-  	user_signed_in? ? "dashboard" : "application"
+  	if params[:controller] != 'home' 
+      "dashboard"
+    else
+      "application"
+    end
   end
 
   def bitcoin
