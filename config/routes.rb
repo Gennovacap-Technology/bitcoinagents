@@ -18,6 +18,10 @@ Bitcoinagents::Application.routes.draw do
   namespace :dashboard do
     get '/', to: 'dashboard#index', as: ''
     resource :user, only: [:show, :edit, :update]
+
+    match "/bitcoin", :to => "bitcoin#show", :as => "bitcoin"
+    match "/bitcoin/buybitcoin", :to => "bitcoin#buybitcoin", :as => "bitcoin_buy"
+    match "/bitcoin/sellbitcoin", :to => "bitcoin#sellbitcoin", :as => "bitcoin_sell"
   end
 
 end
