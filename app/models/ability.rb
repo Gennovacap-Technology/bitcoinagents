@@ -11,6 +11,7 @@ class Ability
     if user.role? :user
       can [:show, :update], User
       can :read, Dashboard
+      can :manage, Bitcoin
     end
 
     if user.role? :guest

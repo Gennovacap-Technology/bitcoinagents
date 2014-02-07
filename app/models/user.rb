@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   ROLES = %[admin user guest]
   before_create :user_role
-  devise :authy_authenticatable, :database_authenticatable, :registerable,
+  devise :authy_authenticatable, :async, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   def role?(base_role)
