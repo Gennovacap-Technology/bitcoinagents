@@ -59,6 +59,4 @@ gem 'cancan'
 gem 'devise-async'
 
 # Bitcoin helpers
-gem 'rqrcode-rails3'
-gem 'mini_magick'
 gem 'sidekiq'

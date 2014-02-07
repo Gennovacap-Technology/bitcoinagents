@@ -15,7 +15,7 @@ class Ability
     end
 
     if user.role? :guest
-      can :manage, :all
+      can :read, Home
     end
   end
 

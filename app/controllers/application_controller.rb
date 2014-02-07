@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     # Change the app layout based on the user session
     def users_layout
         app_view = ['home']
-        dashboard_view = ['dashboard/dashboard']
+        dashboard_view = ['dashboard/dashboard', 'dashboard/bitcoin', 'dashboard/users']
         others_view = ['devise/registrations', 'devise/confirmations', 'devise/passwords', 'users/devise_authy', 'users/sessions']
 
         if app_view.include? params[:controller]
@@ -40,5 +40,10 @@ class ApplicationController < ActionController::Base
         @bitcoin ||= Bitcoin.new("http://gennovacap:testserver@127.0.0.1:18332")
     end
     helper_method :bitcoin
+
+    def qr_code(size, url)
+        "https://chart.googleapis.com/chart?cht=qr&chs=#{size}x#{size}&chl=#{CGI.escape(url)}"
+    end
+    helper_method :qr_code
 
 end

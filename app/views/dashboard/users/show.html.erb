@@ -25,17 +25,16 @@
  										<div class="form-group">
  											<label class="control-label" for="focusedInput">Username</label>
  											<div class="controls">
- 												<input class="form-control focused" id="focusedInput" type="text" placeholder="Username">
+ 												<input class="form-control focused" id="focusedInput" type="text" placeholder="Username" value="<%= current_user.username if current_user.username %>">
  											</div>
  										</div>
  										<div class="form-group">
  											<label class="control-label" for="focusedInput">Email</label>
  											<div class="controls">
- 												<input class="form-control focused" id="focusedInput" type="text" placeholder="rezapiri@gmail.com">
+ 												<input class="form-control focused" id="focusedInput" type="text" placeholder="" value="<%= current_user.email %>">
  											</div>
  										</div>
- 										<!-- <a href="">Change Password</a><br />
-		 								<a href="">Forgot Password</a><br /> -->
+ 										
  										<div class="form-group">
  											<label class="control-label" for="selectError3">Select Your Currency</label>
  											<div class="controls">
@@ -71,28 +70,42 @@
 
 		 							
 		 							<ul class="profile-details">
-				 						<!-- <li>
+		 								<% if !current_user.authy_enabled %>
+				 						<li>
 				 							<div><i class="fa fa-phone"></i> Phone Numbers</div>
-				 							<div class="well"> Adding a phone enables two-factor authentication on your account<br /><br /><button class="btn btn-sm btn-primary myModal"><i class="fa fa-plus"></i> Verify a phone</button></div>
-
-				 						</li> -->
+				 							<p>Adding a phone enables two-factor authentication on your account</p>
+				 							<%= link_to(user_enable_authy_path, :class => "btn btn-primary") do %>
+				 								<i class="fa fa-plus"></i> Verify a phone
+				 							<% end %>
+				 						</li>
+				 						<% else %>
 				 						<li>
 				 							<div><i class="fa fa-tablet"></i> mobile phone</div>
 				 							+48 123 456 789
 				 							<br />
 				 							<button class="btn btn-xs btn-success">Verified </button>
-				 							<button class="btn btn-xs btn-info">Primary Phone</button>
 				 						</li>
+				 						<% end %>
 				 						<li>
 				 							<div><i class="fa fa-envelope"></i> e-mail</div>
-				 							reznutz@gmail.com
+				 							<%= current_user.email %>
 				 						</li>
+				 						<% if current_user.have_address? %>
 				 						<li>
 				 							<div><i class="fa fa-map-marker"></i> address</div>
-				 							1620 E. Riverside #1081<br/>
-				 							Austin, TX 78741<br/>
-				 							USA
+				 							<%= current_user.address %><br/>
+				 							<%= current_user.city %>, <%= current_user.state %> <%= current_user.zipcode %><br/>
+				 							<%= current_user.country.abbr %>
 				 						</li>
+				 						<% else %>
+				 							<li>
+				 								<div><i class="fa fa-map-marker"></i> address</div>
+				 								<p>You need to add a billing address.</p>
+				 								<%= link_to("/dashboard/security", :class => "btn btn-primary") do %>
+				 								<i class="fa fa-plus"></i> Add Billing Address
+				 							<% end %>
+				 							</li>	
+				 						<% end %>
 				 					</ul>
 		 							
  								</div>
@@ -101,69 +114,33 @@
  					</div><!--/row -->	
  				</div>
  				<div class="tab-pane" id="addresses">
- 					<div class="row">	
- 						<div class="col-lg-6">
- 							<div class="box">
- 								<div class="box-header">
- 									<h2><i class="fa fa-qrcode"></i>Search for Bitcoin Addresses</h2>
- 								</div>
- 								<div class="box-content">
- 									<p>Your wallet on Bitcoin Agents is a collection of bitcoin addresses. New bitcoin addresses are automatically generated for each payment on Bitcoin Agents and stay associated with your account forever (so it is safe to reuse them).</p>
- 									<form class="form-horizontal">
-					 					 <div class="form-group">
-											<label class="control-label" for="appendedInputButton">Search For Bitcoin Address</label>
-												<div class="controls">
-												  <div class="input-group">
-													<input id="appendedInputButton" class="form-control" size="16" type="text">
-													<span class="input-group-btn"><button class="btn" type="button">Go!</button></span>
-												  </div>
-												</div>
-										  </div>
-									</form>	
-								</div>
- 							</div>
- 						</div><!--/col-->
- 					</div>
  					<div class="row">
- 						<div class="col-md-12">
+ 						<div class="col-md-3">
 							<div class="box">
 								<div class="box-header">
-									<h2><i class="fa fa-qrcode"></i>All Available Addresses </h2>
-									<button type="submit" class="btn btn-info pull-right "><i class="fa fa-qrcode" style="bottom:0px;"> </i> Create New Address</button>
+									<h2><i class="fa fa-qrcode"></i>QR Code / Request Payment </h2>
 								</div>
 								<div class="box-content no-padding">
-										
-									<table class="table bootstrap-datatable datatable small-font">
-										<thead>
-											<tr>
-												<th>Address</th>
-												<th>Label</th>
-												<th>Callback URL</th>
-												<th>Created</th>
-												<th>Details</th>
-											</tr>
-										</thead>   
-										<tbody>
-											<tr>
-												<td>19GjFwhMwtdrcppLbGcLsJFr2AqY2rQ7t</td>
-												<td>Desktop</td>
-												<td>http://www.bitcoin-agents.com</td>
-												<td>1/30/2014</td>	
-												<td><button href="profile#qrcode" class="btn btn-xs btn-success btn-setting"><i class="fa fa-search"></i> See Details</button></td>			
-											</tr>							
-										</tbody>
-									</table>	
-										
+									<%= image_tag qr_code(350, 'some dummy text') %>
 								</div>
-								
 							</div>
 						</div><!--/col-->
-
+						<div class="col-md-4">
+							<div class="box">
+								<div class="box-header">
+									<h2><i class="fa fa-qrcode"></i>Wallet Address </h2>
+									<button type="submit" class="btn btn-info pull-right "><i class="fa fa-qrcode" style="bottom:0px;"> </i> Generate New Address</button>
+								</div>
+								<div class="box-content">
+									<p>Something in here</p>								
+								</div>
+							</div>
+						</div><!--/col-->
  					</div>
  				</div>
  				<div class="tab-pane" id="notifications">
  					<div class="row">	
- 						<div class="col-lg-12">
+ 						<div class="col-lg-4">
  							<div class="box">
  								<div class="box-header">
  									<h2><i class="fa fa-user"></i>Notifications</h2>
