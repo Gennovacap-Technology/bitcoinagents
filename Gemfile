@@ -56,3 +56,9 @@ gem 'debugger', group: [:development, :test]
 gem 'devise', '2.1.3'
 gem 'devise-authy'
 gem 'cancan'
+gem 'devise-async'
+
+# Bitcoin helpers
+gem 'rqrcode-rails3'
+gem 'mini_magick'
+gem 'sidekiq'
