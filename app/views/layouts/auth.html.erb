@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bitcoin Agents</title>
+	<meta name="description" content="Bitcoin Agents">
+	<meta name="author" content="Bitcoin Agents">
+	<meta name="keyword" content="Bitcoin Agents">
+	<!-- end: Meta -->
+	<%= stylesheet_link_tag    "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<%=javascript_include_tag "https://www.authy.com/form.authy.min.js" %>
+	<%=stylesheet_link_tag "https://www.authy.com/form.authy.min.css" %>
+	<%=javascript_include_tag "devise_authy.js" %>
+
+</head>
+<body>
+
+<%= flash[:notice] %>
+<%= flash[:error] %>
+
+<%= yield %>
+
+</body>
+</html>
