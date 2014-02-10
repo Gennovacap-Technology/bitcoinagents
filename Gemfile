@@ -53,10 +53,11 @@ end
 gem 'debugger', group: [:development, :test]
 
 # Authentication
-gem 'devise', '2.1.3'
+gem 'devise'
 gem 'devise-authy'
 gem 'cancan'
 gem 'devise-async'
 
 # Bitcoin helpers
+gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'sidekiq'

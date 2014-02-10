@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Bitcoinagents::Application.routes.draw do
 
   devise_for :users, :controllers => { :sessions => "users/sessions", :devise_authy => "users/devise_authy" }, :path => '/', :path_names => { 
@@ -47,5 +49,7 @@ Bitcoinagents::Application.routes.draw do
   # Accounting and transaction history
   get "open_orders"   =>    'home#open_orders',   :as =>  :open_orders
   get "transaction_login_history"   =>    'home#transaction_login_history',   :as =>  :transaction_login_history
+  
+  mount Sidekiq::Web => '/sidekiq'
 
 end

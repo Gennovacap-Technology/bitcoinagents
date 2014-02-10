@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   devise :authy_authenticatable, :async, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  attr_accessible :username, :email, :address, :city, :state, :phone, :country_id, :currency_id, :account
+  attr_accessible :username, :email, :address, :city, :state, :phone, :country_id, :currency_id, :account, :password, :password_confirmation
 
   def role?(base_role)
   	ROLES.index(role) == ROLES.index(base_role.to_s)
@@ -26,7 +26,12 @@ class User < ActiveRecord::Base
   end
 
   def create_wallet
-    
+    bitcoin = Bitcoin.new("http://gennovacap:testserver@127.0.0.1:18332")
+
+    self.account = SecureRandom.uuid
+    bitcoin.getnewaddress self.account
+
+    bitcoin = nil
   end
 
 end
